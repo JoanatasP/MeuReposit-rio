@@ -1,0 +1,158 @@
+{
+	"info": {
+		"_postman_id": "135c86f6-46cd-402e-b58b-abd2f4403ca5",
+		"name": "CT 7 - Validar cotação SKU - Produto SKU123 - Não disponibiliza entrega PAC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Criar cotação por produto",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "4aa90b1087807b5fb8e52b01584f84e416ddb8ab8e5b800ae5d0f075a2d1e379",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "api-key",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "4aa90b1087807b5fb8e52b01584f84e416ddb8ab8e5b800ae5d0f075a2d1e379",
+						"type": "text"
+					},
+					{
+						"key": "platform",
+						"value": "intelipost-docs",
+						"type": "text"
+					},
+					{
+						"key": "platform-version",
+						"value": "v1.0.0",
+						"type": "text"
+					},
+					{
+						"key": "plugin",
+						"value": "intelipost-plugin",
+						"type": "text"
+					},
+					{
+						"key": "plugin-version",
+						"value": "v2.0.0",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"origin_zip_code\": \"07786425\",\n  \"destination_zip_code\": \"04304011\",\n  \"quoting_mode\": \"DYNAMIC_BOX_ALL_ITEMS\",\n  \"products\": [\n    {\n      \"weight\": 5,\n      \"cost_of_goods\": 10.7,\n      \"width\": 15,\n      \"height\": 17.5,\n      \"length\": 15,\n      \"quantity\": 1,\n      \"sku_id\": \"SKU123\",\n      \"product_category\": \"Bebidas\"\n    },\n    {\n      \"weight\": 7,\n      \"cost_of_goods\": 20.99,\n      \"width\": 20.5,\n      \"height\": 30.7,\n      \"length\": 20,\n      \"quantity\": 1,\n      \"sku_id\": \"SKU456\",\n      \"product_category\": \"Bebidas\"\n    }\n  ],\n  \"additional_information\": {\n    \"lead_time_business_days\": 1,\n    \"sales_channel\": \"meu_canal_de_vendas\",\n    \"client_type\": \"gold\"\n  },\n  \"identification\": {\n    \"session\": \"04e5bdf7ed15e571c0265c18333b6fdf1434658753\",\n    \"ip\": \"000.000.000.000\",\n    \"page_name\": \"carrinho\",\n    \"url\": \"http://www.intelipost.com.br/checkout/cart/\"\n  }\n}"
+				},
+				"url": {
+					"raw": "https://api.intelipost.com.br/api/v1/quote_by_product",
+					"protocol": "https",
+					"host": [
+						"api",
+						"intelipost",
+						"com",
+						"br"
+					],
+					"path": [
+						"api",
+						"v1",
+						"quote_by_product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar cotação",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "4aa90b1087807b5fb8e52b01584f84e416ddb8ab8e5b800ae5d0f075a2d1e379",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "api-key",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "4aa90b1087807b5fb8e52b01584f84e416ddb8ab8e5b800ae5d0f075a2d1e379",
+						"type": "text"
+					},
+					{
+						"key": "platform",
+						"value": "intelipost-docs",
+						"type": "text"
+					},
+					{
+						"key": "platform-version",
+						"value": "v1.0.0",
+						"type": "text"
+					},
+					{
+						"key": "plugin",
+						"value": "intelipost-plugin",
+						"type": "text"
+					},
+					{
+						"key": "plugin-version",
+						"value": "v2.0.0",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.intelipost.com.br/api/v1/quote/7148458449",
+					"protocol": "https",
+					"host": [
+						"api",
+						"intelipost",
+						"com",
+						"br"
+					],
+					"path": [
+						"api",
+						"v1",
+						"quote",
+						"7148458449"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

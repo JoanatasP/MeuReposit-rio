@@ -1,0 +1,172 @@
+{
+	"info": {
+		"_postman_id": "65ece14a-abe3-48c8-a932-4169fc56f240",
+		"name": "CT 4 - Validar venda CN123 - Correios PAC - Para cep destino 22710-010",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Criar cotação por produto",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "4aa90b1087807b5fb8e52b01584f84e416ddb8ab8e5b800ae5d0f075a2d1e379",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "api-key",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "4aa90b1087807b5fb8e52b01584f84e416ddb8ab8e5b800ae5d0f075a2d1e379",
+						"type": "text"
+					},
+					{
+						"key": "platform",
+						"value": "intelipost-docs",
+						"type": "text"
+					},
+					{
+						"key": "platform-version",
+						"value": "v1.0.0",
+						"type": "text"
+					},
+					{
+						"key": "plugin",
+						"value": "intelipost-plugin",
+						"type": "text"
+					},
+					{
+						"key": "plugin-version",
+						"value": "v2.0.0",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"origin_zip_code\": \"4012080\",\n  \"destination_zip_code\": \"22710010\",\n  \"quoting_mode\": \"DYNAMIC_BOX_ALL_ITEMS\",\n  \"products\": [\n    {\n      \"weight\": 5,\n      \"cost_of_goods\": 10.7,\n      \"width\": 15,\n      \"height\": 17.5,\n      \"length\": 15,\n      \"quantity\": 1,\n      \"sku_id\": \"SKU123\",\n      \"product_category\": \"Bebidas\"\n    },\n    {\n      \"weight\": 7,\n      \"cost_of_goods\": 20.99,\n      \"width\": 20.5,\n      \"height\": 30.7,\n      \"length\": 20,\n      \"quantity\": 1,\n      \"sku_id\": \"SKU456\",\n      \"product_category\": \"Bebidas\"\n    }\n  ],\n  \"additional_information\": {\n    \"lead_time_business_days\": 1,\n    \"sales_channel\": \"meu_canal_de_vendas\",\n    \"client_type\": \"gold\"\n  },\n  \"identification\": {\n    \"session\": \"04e5bdf7ed15e571c0265c18333b6fdf1434658753\",\n    \"ip\": \"000.000.000.000\",\n    \"page_name\": \"carrinho\",\n    \"url\": \"http://www.intelipost.com.br/checkout/cart/\"\n  }\n}"
+				},
+				"url": {
+					"raw": "https://api.intelipost.com.br/api/v1/quote_by_product",
+					"protocol": "https",
+					"host": [
+						"api",
+						"intelipost",
+						"com",
+						"br"
+					],
+					"path": [
+						"api",
+						"v1",
+						"quote_by_product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar cotação",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "746dbd6c-6246-4455-b141-4be366796540",
+						"exec": [
+							"pm.test( \"description: Correios PAC\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "4aa90b1087807b5fb8e52b01584f84e416ddb8ab8e5b800ae5d0f075a2d1e379",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "api-key",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "4aa90b1087807b5fb8e52b01584f84e416ddb8ab8e5b800ae5d0f075a2d1e379",
+						"type": "text"
+					},
+					{
+						"key": "platform",
+						"value": "intelipost-docs",
+						"type": "text"
+					},
+					{
+						"key": "platform-version",
+						"value": "v1.0.0",
+						"type": "text"
+					},
+					{
+						"key": "plugin",
+						"value": "intelipost-plugin",
+						"type": "text"
+					},
+					{
+						"key": "plugin-version",
+						"value": "v2.0.0",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.intelipost.com.br/api/v1/quote/7170147680",
+					"protocol": "https",
+					"host": [
+						"api",
+						"intelipost",
+						"com",
+						"br"
+					],
+					"path": [
+						"api",
+						"v1",
+						"quote",
+						"7170147680"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

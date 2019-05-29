@@ -1,0 +1,271 @@
+{
+	"info": {
+		"_postman_id": "30d3dfba-1cf5-4938-b38f-1769d4c6b145",
+		"name": "CT  1 - Efetuar cotação para o canal CN1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Criar cotação por produto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fd86f37a-e1c1-47aa-85ae-bbee79f0e668",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "4aa90b1087807b5fb8e52b01584f84e416ddb8ab8e5b800ae5d0f075a2d1e379",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "api-key",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "4aa90b1087807b5fb8e52b01584f84e416ddb8ab8e5b800ae5d0f075a2d1e379",
+						"type": "text"
+					},
+					{
+						"key": "platform",
+						"value": "intelipost-docs",
+						"type": "text"
+					},
+					{
+						"key": "platform-version",
+						"value": "v1.0.0",
+						"type": "text"
+					},
+					{
+						"key": "plugin",
+						"value": "intelipost-plugin",
+						"type": "text"
+					},
+					{
+						"key": "plugin-version",
+						"value": "v2.0.0",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"origin_zip_code\": \"04012080\",\n  \"destination_zip_code\": \"29010120\",\n  \"quoting_mode\": \"Teste CN1\",\n  \"products\": [\n    {\n      \"weight\": 5,\n      \"cost_of_goods\": 10.7,\n      \"width\": 15,\n      \"height\": 17.5,\n      \"length\": 15,\n      \"quantity\": 1,\n      \"sku_id\": \"SKU123\",\n      \"product_category\": \"Bebidas\"\n    },\n    {\n      \"weight\": 7,\n      \"cost_of_goods\": 20.99,\n      \"width\": 20.5,\n      \"height\": 30.7,\n      \"length\": 20,\n      \"quantity\": 1,\n      \"sku_id\": \"SKU456\",\n      \"product_category\": \"Bebidas\"\n    }\n  ],\n  \"additional_information\": {\n    \"lead_time_business_days\": 1,\n    \"sales_channel\": \"meu_canal_de_vendas\",\n    \"client_type\": \"gold\"\n  },\n  \"identification\": {\n    \"session\": \"04e5bdf7ed15e571c0265c18333b6fdf1434658753\",\n    \"ip\": \"000.000.000.000\",\n    \"page_name\": \"carrinho\",\n    \"url\": \"http://www.intelipost.com.br/checkout/cart/\"\n  }\n}"
+				},
+				"url": {
+					"raw": "https://api.intelipost.com.br/api/v1/quote_by_product?id={{id}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"intelipost",
+						"com",
+						"br"
+					],
+					"path": [
+						"api",
+						"v1",
+						"quote_by_product"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "{{id}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar cotação",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "4aa90b1087807b5fb8e52b01584f84e416ddb8ab8e5b800ae5d0f075a2d1e379",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "api-key",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "4aa90b1087807b5fb8e52b01584f84e416ddb8ab8e5b800ae5d0f075a2d1e379",
+						"type": "text"
+					},
+					{
+						"key": "platform",
+						"value": "intelipost-docs",
+						"type": "text"
+					},
+					{
+						"key": "platform-version",
+						"value": "v1.0.0",
+						"type": "text"
+					},
+					{
+						"key": "plugin",
+						"value": "intelipost-plugin",
+						"type": "text"
+					},
+					{
+						"key": "plugin-version",
+						"value": "v2.0.0",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.intelipost.com.br/api/v1/quote/7148458449",
+					"protocol": "https",
+					"host": [
+						"api",
+						"intelipost",
+						"com",
+						"br"
+					],
+					"path": [
+						"api",
+						"v1",
+						"quote",
+						"7148458449"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar metodos de envio",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "da02b696-87d9-45c1-8475-bad7e02c35f8",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {//não há cotação para essa requisição",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "4aa90b1087807b5fb8e52b01584f84e416ddb8ab8e5b800ae5d0f075a2d1e379",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "api-key",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "4aa90b1087807b5fb8e52b01584f84e416ddb8ab8e5b800ae5d0f075a2d1e379",
+						"type": "text"
+					},
+					{
+						"key": "platform",
+						"value": "intelipost-docs",
+						"type": "text"
+					},
+					{
+						"key": "platform-version",
+						"value": "v1.0.0",
+						"type": "text"
+					},
+					{
+						"key": "plugin",
+						"value": "intelipost-plugin",
+						"type": "text"
+					},
+					{
+						"key": "plugin-version",
+						"value": "v2.0.0",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.intelipost.com.br/api/v1/info/7169977268",
+					"protocol": "https",
+					"host": [
+						"api",
+						"intelipost",
+						"com",
+						"br"
+					],
+					"path": [
+						"api",
+						"v1",
+						"info",
+						"7169977268"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
